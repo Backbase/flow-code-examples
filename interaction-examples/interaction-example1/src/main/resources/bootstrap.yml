@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: interaction-example1
+
+server:
+  port : 5601

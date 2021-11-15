@@ -1,0 +1,29 @@
+{
+  "key": "interaction-example-1",
+  "version": 1,
+  "schemaId": "interaction-definition-schema@1",
+  "caseDefinitionKey": "case-definition-example-1",
+  "caseDefinitionVersion": 1,
+  "steps": [
+    {
+      "name": "step-A",
+      "entryPoint": true,
+      "handlers": [
+        {
+          "name": "step-one-handler",
+          "transitions": [
+            {
+              "condition": "errors.size() == 0",
+              "step": "done"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "done",
+      "exitPoint": true,
+      "enabled": "true"
+    }
+  ]
+}
