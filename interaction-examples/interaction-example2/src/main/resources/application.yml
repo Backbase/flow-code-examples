@@ -1,0 +1,53 @@
+camunda:
+  bpm:
+    auto-deployment-enabled: true
+    authorization:
+      enabled: true
+
+backbase:
+  activemq:
+    enabled: false
+  flow:
+    iam.local.users:
+      - id: user
+        fullName: John Doe
+        permissions:
+          - case(view) on case-definition:case-definition
+          - case(create) on case-definition:case-definition
+          - task(view) on process-definition:simple-process
+          - task(execute) on process-definition:simple-process
+    case-definitions:
+      definitions:
+        customer-onboarding-case:
+          case-classes:
+            - name: com.backbase.flow.example.casedata.CustomerOnboarding
+              version: 1
+          case-status-definitions:
+            - name: Primary case status
+              isPrimary: true
+              values:
+                - open
+                - in progress
+                - closed
+              provider: com.backbase.flow.example.status.PrimaryCaseStatusProvider
+    storage:
+      impl: fs
+      fs:
+        baseDir: ${java.io.tmpdir}/simple-document-storage
+
+sso:
+  jwt:
+    internal:
+      signature:
+        key:
+          type: VALUE
+          value: "JWTSecretKeyDontUseInProduction!"
+
+buildingblocks:
+  security:
+    csrf:
+      enabled: false
+
+spring:
+  main:
+    allow-bean-definition-overriding: true

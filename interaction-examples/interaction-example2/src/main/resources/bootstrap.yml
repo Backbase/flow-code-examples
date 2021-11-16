@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: interaction-example2
+
+server:
+  port : 5602

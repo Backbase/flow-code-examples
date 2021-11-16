@@ -1,0 +1,44 @@
+{
+	"id": "22310776-7467-4ae4-8ec6-f24a46332af8",
+	"name": "Interaction Example 2",
+	"values": [
+		{
+			"key": "host",
+			"value": "localhost",
+			"enabled": true
+		},
+		{
+			"key": "port",
+			"value": "7777",
+			"enabled": true
+		},
+		{
+			"key": "gateway-url",
+			"value": "http://{{host}}:{{port}}",
+			"enabled": true
+		},
+		{
+			"key": "journey-service-url",
+			"value": "{{gateway-url}}/api/interaction-example2",
+			"enabled": true
+		},
+		{
+			"key": "interaction-url",
+			"value": "{{journey-service-url}}/client-api/interaction/v2/interactions",
+			"enabled": true
+		},
+		{
+			"key": "interaction-id",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "resume-code",
+			"value": "",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2021-11-16T14:42:39.293Z",
+	"_postman_exported_using": "Postman/9.0.5"
+}

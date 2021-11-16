@@ -1,0 +1,125 @@
+{
+	"info": {
+		"_postman_id": "bc1aed0e-6412-4ab9-a6b3-893e5529da92",
+		"name": "Interaction Example 2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "01 Retrieve Personal Details",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var response = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"interaction-id\", response.interactionId);",
+							"postman.setEnvironmentVariable(\"resume-code\", response.resumeCode);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Cookie",
+						"value": "anonymousUserId={{cookieAnonValue}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"payload\": {\n        \"idNumber\": \"12345678\"\n    }\n}"
+				},
+				"url": {
+					"raw": "{{interaction-url}}/customer-onboarding-interaction/actions/retrieve-personal-details",
+					"host": [
+						"{{interaction-url}}"
+					],
+					"path": [
+						"customer-onboarding-interaction",
+						"actions",
+						"retrieve-personal-details"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "02 Submit Personal Details",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var response = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"interaction-id\", response.interactionId);",
+							"postman.setEnvironmentVariable(\"resume-code\", response.resumeCode);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Cookie",
+						"value": "anonymousUserId={{cookieAnonValue}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"interactionId\": \"4ca326e6-1f7b-4e2f-bcef-62ca223945bd\",\n\t\"payload\": {\n        \"idNumber\": \"12345678\",\n        \"firstName\": \"Joe\",\n        \"lastName\": \"Soap\"\n    }\n}"
+				},
+				"url": {
+					"raw": "{{interaction-url}}/customer-onboarding-interaction/actions/submit-personal-details",
+					"host": [
+						"{{interaction-url}}"
+					],
+					"path": [
+						"customer-onboarding-interaction",
+						"actions",
+						"submit-personal-details"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

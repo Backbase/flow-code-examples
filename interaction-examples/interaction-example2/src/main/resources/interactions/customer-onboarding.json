@@ -1,0 +1,41 @@
+{
+  "key": "customer-onboarding-interaction",
+  "version": 1,
+  "schemaId": "interaction-definition-schema@1",
+  "caseDefinitionKey": "customer-onboarding-case",
+  "caseDefinitionVersion": 1,
+  "steps": [
+    {
+      "name": "capture-personal-details-step",
+      "entryPoint": true,
+      "handlers": [
+        {
+          "name": "retrieve-personal-details"
+        },
+        {
+          "name": "submit-personal-details",
+          "transitions": [
+            {
+              "condition": "success()",
+              "step": "capture-customer-details-complete-step"
+            },
+            {
+              "condition": "failure()",
+              "step": "capture-customer-details-failed-step"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "capture-customer-details-failed-step",
+      "exitPoint": true,
+      "enabled": "true"
+    },
+    {
+      "name": "capture-customer-details-complete-step",
+      "exitPoint": true,
+      "enabled": "true"
+    }
+  ]
+}
