@@ -18,9 +18,9 @@ backbase:
           - task(execute) on process-definition:simple-process
     case-definitions:
       definitions:
-        case-definition-example-1:
+        personal-message-state:
           case-classes:
-            - name: com.backbase.flow.example.casedata.CaseDefinitionExample1
+            - name: com.backbase.flow.example.casedata.PersonalMessageState
               version: 1
           case-status-definitions:
             - name: Primary case status
@@ -51,3 +51,11 @@ buildingblocks:
 spring:
   main:
     allow-bean-definition-overriding: true
+
+logging:
+  level:
+    root: INFO
+    com:
+      backbase:
+        flow:
+          interaction: INFO

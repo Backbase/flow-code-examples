@@ -1,5 +1,5 @@
 {
-  "$id": "case-definition-example-1",
+  "$id": "personal-message-state",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Case Definition",
   "type": "object",

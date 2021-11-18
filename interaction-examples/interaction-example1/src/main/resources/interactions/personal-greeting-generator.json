@@ -1,19 +1,19 @@
 {
-  "key": "interaction-example-1",
+  "key": "personal-message-generator",
   "version": 1,
   "schemaId": "interaction-definition-schema@1",
-  "caseDefinitionKey": "case-definition-example-1",
+  "caseDefinitionKey": "personal-message-state",
   "caseDefinitionVersion": 1,
   "steps": [
     {
-      "name": "step-A",
+      "name": "personal-message-step",
       "entryPoint": true,
       "handlers": [
         {
-          "name": "step-one-handler",
+          "name": "generate-personal-message",
           "transitions": [
             {
-              "condition": "errors.size() == 0",
+              "condition": "success()",
               "step": "done"
             }
           ]
@@ -21,7 +21,7 @@
       ]
     },
     {
-      "name": "done",
+      "name": "personal-message-complete",
       "exitPoint": true,
       "enabled": "true"
     }
