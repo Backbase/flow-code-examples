@@ -8,6 +8,8 @@ spring:
     password: root
 camunda:
   bpm:
+    job-execution:
+      enabled: false
     admin-user:
       id: demo
       password: demo
